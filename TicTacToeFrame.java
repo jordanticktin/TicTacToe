@@ -97,51 +97,63 @@ public class TicTacToeFrame extends JFrame implements ActionListener
 			return 0;
 	}
 	
-	// takes a space; deactivates button and updates the label of the button to reflect the player who played it
-	public void takeSpace(int button, char player)
-	{
-		if(button == 7) {
-			TL.setText("" + player);
-			TL.setEnabled(false);
-		}
-		else if(button == 8) {
-			TM.setText("" + player);
-			TM.setEnabled(false);
-		}
-		else if(button == 9) {
-			TR.setText("" + player);
-			TR.setEnabled(false);
-		}
-		else if(button == 4) {
-			ML.setText("" + player);
-			ML.setEnabled(false);
-		}
-		else if(button == 5) {
-			MM.setText("" + player);
-			MM.setEnabled(false);
-		}
-		else if(button == 6) {
-			MR.setText("" + player);
-			MR.setEnabled(false);
-		}
-		else if(button == 1) {
-			BL.setText("" + player);
-			BL.setEnabled(false);
-		}
-		else if(button == 2) {
-			BM.setText("" + player);
-			BM.setEnabled(false);
-		}
-		else if(button == 3) {
-			BR.setText("" + player);
-			BR.setEnabled(false);
-		}
-	}
-	
 	// shows end message if game is over
 	public void endMessage(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, "Game Over", JOptionPane.PLAIN_MESSAGE);
 		setVisible(true);
+	}
+	
+	public boolean takeSpace(int button, char player)
+	{
+		boolean moved = false;
+		
+		if(button == 7 && TL.isEnabled()) {
+			TL.setText("" + player);
+			TL.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 8 && TM.isEnabled()) {
+			TM.setText("" + player);
+			TM.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 9 && TR.isEnabled()) {
+			TR.setText("" + player);
+			TR.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 4 && ML.isEnabled()) {
+			ML.setText("" + player);
+			ML.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 5 && MM.isEnabled()) {
+			MM.setText("" + player);
+			MM.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 6 && MR.isEnabled()) {
+			MR.setText("" + player);
+			MR.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 1 && BL.isEnabled()) {
+			BL.setText("" + player);
+			BL.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 2 && BM.isEnabled()) {
+			BM.setText("" + player);
+			BM.setEnabled(false);
+			moved = true;
+		}
+		else if(button == 3 && BR.isEnabled()) {
+			BR.setText("" + player);
+			BR.setEnabled(false);
+			moved = true;
+		}
+		
+		return moved;
 	}
 }
