@@ -1,4 +1,4 @@
-public class TicTacToe
+public class TicTacToeGame
 {
 	private char board[][] = new char[3][3]; // the board
 	private int userInput; // space taken by player
@@ -7,76 +7,63 @@ public class TicTacToe
 	private TicTacToeFrame frame; // frame to show results in
 
 	// constructor
-	public TicTacToe(TicTacToeFrame f)
+	public TicTacToeGame(TicTacToeFrame f)
 	{
 		frame = f;
 		turnCounter = 0;
 	}
 	
 	// checks for valid move and makes change in board accordingly
-	public void checkAndChange()
+	public void updateBoard()
 	{
-		boolean valid = false; // checks if selection is valid
-		int r = 0; // row
-		int c = 0; // column
-
-		// check to see if space is occupied, only run while there is not yet a valid result
-		// since default button return value is 0, value selection is skipped when game is just starting
-		while(!valid && userInput != 0)
+		int r; // row
+		int c; // column
+		switch(userInput)
 		{
-			// if userInput is filled, set r and c accordingly
-			switch(userInput)
-			{
-				case 1:
-					r = 2;
-					c = 0;
-					break;
-				case 2:
-					r = 2;
-					c = 1;
-					break;
-				case 3:
-					r = 2;
-					c = 2;
-					break;
-				case 4:
-					r = 1;
-					c = 0;
-					break;
-				case 5:
-					r = 1;
-					c = 1;
-					break;
-				case 6:
-					r = 1;
-					c = 2;
-					break;
-				case 7:
-					r = 0;
-					c = 0;
-					break;
-				case 8:
-					r = 0;
-					c = 1;
-					break;
-				case 9:
-					r = 0;
-					c = 2;
-					break;
-			}		
+			case 1:
+				r = 2;
+				c = 0;
+				break;
+			case 2:
+				r = 2;
+				c = 1;
+				break;
+			case 3:
+				r = 2;
+				c = 2;
+				break;
+			case 4:
+				r = 1;
+				c = 0;
+				break;
+			case 5:
+				r = 1;
+				c = 1;
+				break;
+			case 6:
+				r = 1;
+				c = 2;
+				break;
+			case 7:
+				r = 0;
+				c = 0;
+				break;
+			case 8:
+				r = 0;
+				c = 1;
+				break;
+			case 9:
+				r = 0;
+				c = 2;
+				break;
+			default:
+				return;
+		}		
 
-			// check if requested space is blank, notify as valid if it is
-			if(board[r][c] == '\0' && valid != true) // \0 = null: checks if space is blank
-			{
-				board[r][c] = (userSymbol);
-				valid = true; // valid space was chosen
-			}
-
-			// if no valid space was requested, request a new space
-			if(!valid)
-			{
-				userInput = frame.getButtonPressed();
-			}
+		// check if requested space is blank, notify as valid if it is
+		if(board[r][c] == '\0' ) // \0 = null: checks if space is blank
+		{
+			board[r][c] = (userSymbol);
 		}
 	}
 
@@ -182,5 +169,24 @@ public class TicTacToe
 	public void incrementTurnCounter()
 	{
 		turnCounter++;
+	}
+	
+	// for debugging purposes
+	public void printBoard()
+	{
+		System.out.println("Current board: ");
+		for (int t = 0; t < 3; t++)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if(board[t][i] == '\0')
+					System.out.print("-");
+				else
+					System.out.print(board[t][i]);
+			}
+			System.out.println();
+		}
+		
+		System.out.println();
 	}
 }
