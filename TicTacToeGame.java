@@ -1,19 +1,29 @@
+/*
+ * Manages the board and calculations for the back end.
+ * @author Jordan Ticktin, Griffin Cloonan
+ */
 public class TicTacToeGame
 {
-	private char board[][] = new char[3][3]; // the board
+	private char board[][]; // the board
 	private int userInput; // space taken by player
 	private char userSymbol; // symbol of current player
 	private int turnCounter; // used to determine whose turn it is
 	private TicTacToeFrame frame; // frame to show results in
 
-	// constructor
+	/*
+	 * Constructor. Initializes frame, board, and turnCounter.
+	 * @param f TicTacToeFrame used by GUI
+	 */
 	public TicTacToeGame(TicTacToeFrame f)
 	{
 		frame = f;
+		board = new char[3][3];
 		turnCounter = 0;
 	}
 	
-	// checks for valid move and makes change in board accordingly
+	/*
+	 * Updates board array with moves.
+	 */
 	public void updateBoard()
 	{
 		int r; // row
@@ -67,7 +77,10 @@ public class TicTacToeGame
 		}
 	}
 
-	// checks to see if game is over
+	/*
+	 * Checks to see if game is over.
+	 * @return whether the game is over
+	 */
 	public boolean gameEnd()
 	{
 		// check for win, and if applicable check who won
@@ -135,43 +148,62 @@ public class TicTacToeGame
 		return false; // only returns false if game is not yet over
 	}
 
-	// accessor for userInput 
+	/*
+	 * Returns value of userInput.
+	 * @return userInput 
+	 */
 	public int getUserInput()
 	{
 		return userInput;
 	}
 	
-	// mutator for userInput
+	/*
+	 * Sets new value for userInput.
+	 * @param input new value for userInput
+	 */
 	public void setUserInput(int input)
 	{
 		userInput = input;
 	}
 	
-	// accessor for userSymbol
+	/*
+	 * Returns value of userSymbol.
+	 * @return userSymbol
+	 */
 	public char getUserSymbol()
 	{
 		return userSymbol;
 	}
 	
-	// mutator for userSymbol
+	/*
+	 * Sets new value for userSymbol.
+	 * @param sym new value for userSymbol
+	 */
 	public void setUserSymbol(char sym)
 	{
 		userSymbol = sym;
 	}
 	
-	// accessor for turnCounter
+	/*
+	 * Returns value of turnCounter.
+	 * @return turnCounter
+	 */
 	public int getTurnCounter()
 	{
 		return turnCounter;
 	}
 	
-	// increments turnCounter
+	/*
+	 * Increments turnCounter.
+	 */
 	public void incrementTurnCounter()
 	{
 		turnCounter++;
 	}
 	
-	// for debugging purposes
+	/*
+	 * Prints out currents values in board to console for debugging purposes.
+	 */
 	public void printBoard()
 	{
 		System.out.println("Current board: ");
