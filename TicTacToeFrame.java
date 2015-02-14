@@ -75,12 +75,13 @@ public class TicTacToeFrame extends JFrame implements ActionListener
 		
 		MM.requestFocusInWindow(); // highlights MM button by default
 		
+		// set hotkeys
 		TL.setMnemonic(KeyEvent.VK_7);
 		TM.setMnemonic(KeyEvent.VK_8);
 		TR.setMnemonic(KeyEvent.VK_9);
 		ML.setMnemonic(KeyEvent.VK_4);
 		MM.setMnemonic(KeyEvent.VK_5);
-		MR.setMnemonic(KeyEvent.VK_5);
+		MR.setMnemonic(KeyEvent.VK_6);
 		BL.setMnemonic(KeyEvent.VK_1);
 		BM.setMnemonic(KeyEvent.VK_2);
 		BR.setMnemonic(KeyEvent.VK_3);
